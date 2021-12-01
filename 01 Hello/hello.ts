@@ -1,3 +1,8 @@
+interface name {
+    firstName: string;
+    lastName: string;
+}
+
 class Greeter {
     fullName: string = "";
     skills: Array<{name: string, point: number}> = [
@@ -5,8 +10,8 @@ class Greeter {
         {name: "cycling", point: 100}
     ];
 
-    constructor(firstName: string, lastName: string) {
-        this.fullName = `${lastName} ${firstName}`;
+    constructor(nameObj: name) {
+        this.fullName = `${nameObj.lastName} ${nameObj.firstName}`;
     }
 
     greet() {
@@ -14,5 +19,5 @@ class Greeter {
     }
 }
 
-let g: Greeter = new Greeter("Tamás","Járvás");
+let g: Greeter = new Greeter({lastName: 'Járvás', firstName: 'Tamás'});
 document.body.innerHTML = g.greet();
